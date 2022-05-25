@@ -1,14 +1,15 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+export TERM=xterm-256color
 
 # Path to your oh-my-zsh installation.
-export ZSH="/root/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="steeef"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -45,7 +46,7 @@ ZSH_THEME="robbyrussell"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -70,13 +71,13 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 
 plugins=(
-git
-zsh-completions
-zsh-autosuggestions
-zsh-syntax-highlighting
+    git
+    zsh-completions
+    zsh-autosuggestions
+    zsh-syntax-highlighting
 )
 
-# zsh-completions配置 
+# zsh-completions配置
 # 加上 -u 忽略 权限错误（我有一个配置 root 和某个用户使用相同HOME ..）
 # https://stackoverflow.com/a/19601821/6088796
 autoload -U compinit -u && compinit -u
@@ -114,7 +115,6 @@ export LANG=C.UTF-8
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-
 alias lsnum='ls -al | grep "^-" | wc -l'
 alias lsdir='ls -al | grep "^d" | wc -l'
 
@@ -147,3 +147,6 @@ alias co='code -r' # 方便地通过 vscode 打开文件
 # zsh 开头显示 用户名 和 hostname，对于 docker hostname 为 docker容器的 id
 # 来源: https://github.com/ohmyzsh/ohmyzsh/issues/5686#issuecomment-298226435
 PROMPT="%{$fg[white]%}%n@%{$fg[green]%}%m%{$reset_color%} ${PROMPT}"
+
+alias rsynca="rsync -avzP"
+alias py_http="python -m SimpleHTTPServer 8001"
